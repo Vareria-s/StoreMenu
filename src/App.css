@@ -45,7 +45,7 @@
 }
 .сhange-language{
     top: 30px;
-    box-shadow: 0px 0px 10px 1px rgb(34 60 80 / 5%);
+    box-shadow: 0 0 10px 1px rgb(34 60 80 / 5%);
     position: absolute;
     background: #FFFFFF;
     color: black;
@@ -147,7 +147,7 @@ input::placeholder {
     width: 100%;
     left: 2px;
     top: 65px;
-    box-shadow: 0px 0px 10px 1px rgb(34 60 80 / 5%);
+    box-shadow: 0 0 10px 1px rgb(34 60 80 / 5%);
     position: absolute;
     background: #FFFFFF;
     color: black;
@@ -245,16 +245,23 @@ input::placeholder {
 .responsive-navigation-menu {
     display: none;
 }
+.mobile-version-navigation-menu {
+    display: none;
+}
 
 @media only screen and (max-width: 729px) {
     .responsive-navigation-menu {
         display: block;
     }
     .responsive-navigation {
+        top: 0;
+        position: fixed;
         display: flex;
         justify-content: flex-end;
         width: 100%;
         height: 50px;
+        z-index: 111;
+        background: white;
     }
     .header {
         display: none;
@@ -281,31 +288,80 @@ input::placeholder {
         top: 10px;
         left: -35px;
     }
-    .menu-icon {
+
+
+    #menu__toggle {
+        opacity: 0;
+    }
+
+    #menu__toggle:checked ~ .menu__btn > span {
+        transform: rotate(45deg);
+    }
+    #menu__toggle:checked ~ .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0);
+    }
+    #menu__toggle:checked ~ .menu__btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+    #menu__toggle:checked ~ .menu-burger-body {
+        visibility: visible;
+    }
+
+    .menu__btn {
         display: flex;
         align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        background: #008EF8;
+        position: fixed;
+        top: 17px;
+        right: 15px;
+        width: 18px;
+        height: 15px;
+        cursor: pointer;
+        z-index: 1;
     }
-    .menu-icon img{
-        width: 24px;
-        height: 24px;
+
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transition-duration: .25s;
+    }
+    .menu__btn > span::before {
+        content: '';
+        top: -8px;
+    }
+    .menu__btn > span::after {
+        content: '';
+        top: 8px;
     }
     .menu-burger-header {
-        margin-left: 20px;
+        margin-left: 10px;
+        background: #008EF8;
+        min-width: 50px;
+        height: 50px;
         display: flex;
     }
     .menu-burger-body {
+        position: fixed;
+        visibility: visible;
+        top: 50px;
+        right: 0;
+        transition-duration: .25s;
         background: white;
         display: flex;
         float: right;
         flex-direction: column;
         width:300px;
+        z-index: 20;
     }
     .second-menu-block {
         flex-direction: column;
+        font-size: 16px;
     }
     .first-menu-block {
         flex-direction: column;
@@ -315,7 +371,7 @@ input::placeholder {
         margin: 0;
     }
     .first-menu-block .item {
-        padding: 20px 26px;
+        padding: 10px 26px;
         border: none;
         color: #181A31;
         font-weight: 600;
@@ -326,6 +382,7 @@ input::placeholder {
     }
     .second-menu-block .item-active {
         position: relative;
+        padding: 10px 26px;
     }
     .dropdown-menu {
         position: relative;
@@ -335,5 +392,142 @@ input::placeholder {
     }
     .dropdown-menu li {
         padding: 25px 16px 0 16px;
+    }
+    .second-menu-block .item-active:hover {
+        padding: 10px 26px 0 26px;
+    }
+    .dropdown-menu li {
+        padding: 13px 16px 13px 16px;
+    }
+    .second-menu-block .item {
+        padding: 10px 26px;
+    }
+    .second-menu-block .item-active img {
+        top: 22px;
+        left: 155px;
+    }
+    .menu-title {
+        font-size: 28px;
+        color: #181A31;
+        font-weight: 400;
+        margin: 24px 0 0 24px;
+    }
+    .search{
+        max-width: 252px;
+        margin: 0;
+        padding: 24px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .search input {
+        max-width: 252px;
+        background: #fbfbfb;
+        border: none;
+    }
+    input::placeholder {
+        opacity: 100%;
+        color: #979797;
+    }
+    .search img {
+        top: 25px;
+    }
+    .content {
+        display: none;
+    }
+    .picture-menu-burger {
+        opacity: 10%;
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+    .content-menu-burger {
+        width: 100%;
+        height: 589px;
+        background: url("./img/image.png");
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .responsive-navigation-menu {
+        display: none;
+    }
+    .mobile-version-navigation-menu {
+        display: block;
+    }
+    .mobile-version-responsive-navigation {
+        position: fixed;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        height: 50px;
+        z-index: 111;
+        background: white;
+    }
+    .basket-text {
+        display: none;
+    }
+    .basket {
+        border: none;
+        margin: 10px 15px auto 13px;
+    }
+    .menu-burger-body {
+        max-width: 320px;
+        position: relative;
+    }
+    .menu-title {
+        margin: 24px 0 0 12px;
+    }
+    .mobile-version-first-menu {
+        display: flex;
+        box-shadow: 1px 88px 47px -86px rgba(34, 60, 80, 0.05) inset;
+    }
+    .menu-title {
+        font-size: 28px;
+    }
+    .languages {
+        font-size: 12px;
+        margin: 32px 0 0 5px;
+    }
+    .search {
+        max-width: 156px;
+        padding: 0;
+        border: none;
+        margin: 30px 12px 0 12px;
+    }
+    .search input{
+        max-width: 156px;
+    }
+    .mobile-version-body-menu {
+        padding: 26px 0 37px 12px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .second-menu-block .item {
+        padding: 10px 0;
+    }
+    .first-menu-block .item {
+        padding: 10px 0;
+    }
+    .second-menu-block .item-active{
+        padding: 10px 0;
+    }
+    .second-menu-block .item-active:hover {
+        padding: 10px 0;
+    }
+    .search img {
+        top: 0;
+        left: 130px;
+    }
+    .contact-information {
+        margin: 12px 0 12px 12px;
+    }
+    .telephone {
+        color: #008EF8;
+        margin: 0;
+    }
+    .back-call {
+        margin: 8px 0 0 0;
+    }
+    .social-media {
+        top: 0;
+        left: 225px;
     }
 }

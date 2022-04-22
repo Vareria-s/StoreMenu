@@ -2,6 +2,7 @@ import './../../../App.css';
 import search from "./../../../img/search.png";
 import Languages from "./Languages/Languages";
 import FirstMenuBlock from "./FirstMenuBlock/FirstMenuBlock";
+import Search from "./Search/Search";
 
 function FirstMenu() {
   return (
@@ -9,12 +10,7 @@ function FirstMenu() {
                 <div className="first-menu">
                     <Languages/>
                     <FirstMenuBlock/>
-                    <div className="search">
-                        <input placeholder="Поиск...">
-                        </input>
-                        <img src={search} alt="">
-                        </img>
-                    </div>
+                    <Search/>
                 </div>
             </div>
   );

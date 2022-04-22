@@ -1,11 +1,11 @@
 import './../../App.css';
-import menu from "./../../img/menu.png"
 import Languages from "../Header/FirstMenu/Languages/Languages";
 import ContactInformation from "../Header/SecondMenu/ContactInformation/ContactInformation";
 import Basket from "../Header/SecondMenu/Basket/Basket";
-import Content from "../Content/Content";
 import SecondMenuBlock from "../Header/SecondMenu/SecondMenuBlock/SecondMenuBlock";
 import FirstMenuBlock from "../Header/FirstMenu/FirstMenuBlock/FirstMenuBlock";
+import Search from "../Header/FirstMenu/Search/Search";
+import ContentMenuBurger from "./ContentMenuBurger";
 
 
 function MenuBurger() {
@@ -16,16 +16,23 @@ function MenuBurger() {
                     <ContactInformation/>
                     <Basket/>
                     <div className="menu-burger-header">
-                        <div className="menu-icon">
-                            <img src={menu} alt=""/>
-                        </div>
+                        <input id="menu__toggle" type="checkbox"/>
+                        <label className="menu__btn" for="menu__toggle">
+                            <span>
+
+                            </span>
+                        </label>
                     </div>
                 </div>
                 <div className="menu-burger-body">
+                    <div className="menu-title">
+                        Меню
+                    </div>
+                    <Search/>
                     <SecondMenuBlock/>
                     <FirstMenuBlock/>
                 </div>
-                <Content />
+                <ContentMenuBurger/>
             </div>
 
   );
