@@ -9,7 +9,6 @@ import React, {createContext, useReducer} from 'react';
 
 export const MyContext= createContext();
 
-
 export const initialState = {
     burgerMenuWork: false,
     mobileBurgerMenuWork: false
