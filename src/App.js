@@ -10,11 +10,7 @@ import React, {createContext, useReducer} from 'react';
 export const MyContext= createContext();
 
 
-export type asteroidsContextType = {
-    burgerMenuWork: boolean,
-    mobileBurgerMenuWork: boolean
-}
-export const initialState: asteroidsContextType = {
+export const initialState = {
     burgerMenuWork: false,
     mobileBurgerMenuWork: false
 }
