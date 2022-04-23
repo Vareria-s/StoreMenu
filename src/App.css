@@ -292,6 +292,12 @@ input::placeholder {
     .second-menu-block .item-active {
         padding: 20px 10px;
     }
+
+}
+@media only screen and (max-width: 1164px) {
+    .first-menu-block .item {
+        padding: 0 15px;
+    }
 }
 @media only screen and (max-width: 851px) {
     .languages {
@@ -299,6 +305,9 @@ input::placeholder {
     }
     .first-menu-block {
         margin: 0 2%;
+    }
+    .first-menu-block .item {
+        padding: 0 11px;
     }
 }
 @media only screen and (max-width: 740px) {
@@ -353,6 +362,10 @@ input::placeholder {
 
 #menu__toggle {
     opacity: 0;
+    margin: 12px;
+    width: 25px;
+    height: 25px;
+    z-index: 120;
 }
 
 #menu__toggle:checked ~ .menu__btn > span {
@@ -407,9 +420,22 @@ input::placeholder {
     height: 50px;
     display: flex;
 }
-.menu-burger-body {
+    .menu-burger-body {
     position: fixed;
     visibility: visible;
+    top: 50px;
+    right: 0;
+    transition-duration: .25s;
+    background: white;
+    display: flex;
+    float: right;
+    flex-direction: column;
+    width:300px;
+    z-index: 20;
+}
+.closed-menu-burger-body {
+    position: fixed;
+    visibility: hidden;
     top: 50px;
     right: 0;
     transition-duration: .25s;
@@ -508,6 +534,7 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 320px) {
+
 .responsive-navigation-menu {
     display: none;
 }
@@ -523,6 +550,7 @@ input::placeholder {
     z-index: 111;
     background: white;
 }
+
 .basket-text {
     display: none;
 }
@@ -531,7 +559,7 @@ input::placeholder {
     margin: 10px 15px auto 13px;
 }
 .menu-burger-body {
-    max-width: 320px;
+    width: 100%;
     position: relative;
 }
 .menu-title {
@@ -591,4 +619,6 @@ input::placeholder {
     top: 0;
     left: 225px;
 }
+
+
 }
